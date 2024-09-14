@@ -1,0 +1,10 @@
+[Unit]
+Description=LED hue for CPU utilization
+
+[Service]
+Restart=always
+Type=exec
+ExecStart=/usr/local/bin/led-hue-for-cpu-utilization.py 10
+
+[Install]
+WantedBy=multi-user.target
