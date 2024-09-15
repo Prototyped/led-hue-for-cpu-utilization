@@ -49,7 +49,8 @@ def hsv_to_rgb(hue, saturation, value):
 
 def set_color_hue_for_cpu_utilization(interval, dev):
     util = psutil.cpu_percent(interval - 2) # seconds
-    hue_angle_degrees = 240 - util * 2.4
+    # green to red
+    hue_angle_degrees = 120 - util * 1.2
     red, green, blue = hsv_to_rgb(hue_angle_degrees, 1, 1)
     dev.set_color(channel='led7', mode='fixed', colors=[[red, green, blue]])
     print(f'Utilization: {util}')
